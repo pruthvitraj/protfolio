@@ -1,0 +1,198 @@
+/* Styles for the Experience section */
+/* NOTE: This section is fetched into #experience div but its root element also has id="experience", causing ID conflict */
+#experience section {
+    background-color: #e9ecef; /* Light grey background */
+    padding: 60px 0; /* Add padding back as it's loaded into a div */
+}
+
+/* Styles for the timeline structure in the experience section */
+/* These styles might conflict with project.css if that file also styles .timeline */
+#experience .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Example of a different style for the line */
+#experience .timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px; /* Thinner line */
+    background-color: #007bff; /* Blue line */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px; /* Adjust for thinner line */
+}
+
+#experience .timeline-item {
+     padding: 10px 40px;
+     position: relative;
+     background-color: inherit;
+     width: 50%;
+     box-sizing: border-box;
+     /* Example: Adding a dot style different from project.css */
+}
+
+#experience .timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px; /* Smaller dot */
+    height: 16px;
+    right: -8px; /* Adjust position */
+    background-color: white;
+    border: 2px solid #007bff; /* Blue border */
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+#experience .left {
+    left: 0;
+}
+
+#experience .right {
+    left: 50%;
+}
+
+#experience .left::before { /* Arrow */
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 18px; /* Adjust position */
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 8px 0 8px 8px; /* Adjust size */
+    border-color: transparent transparent transparent white;
+}
+
+#experience .right::before { /* Arrow */
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 18px; /* Adjust position */
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 8px 8px 8px 0; /* Adjust size */
+    border-color: transparent white transparent transparent;
+}
+
+
+#experience .right::after {
+    left: -8px; /* Adjust dot position for right side */
+}
+
+
+#experience .timeline-content {
+    padding: 15px 20px; /* Slightly less padding */
+    background-color: white;
+    position: relative;
+    border-radius: 5px; /* Slightly less rounded */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* Less prominent shadow */
+}
+
+#experience .timeline-content h3 {
+    margin-top: 0;
+    font-size: 1.6em; /* Smaller heading */
+    color: #007bff; /* Blue heading */
+    margin-bottom: 10px;
+}
+
+#experience .timeline-content .company {
+    font-weight: 700;
+    color: #555;
+    font-size: 0.9em;
+}
+
+
+#experience .timeline-content p {
+    font-size: 0.9em; /* Smaller text */
+    color: #666;
+    margin-bottom: 10px;
+}
+
+#experience .timeline-date {
+     font-size: 0.8em;
+     font-weight: 500;
+     color: #777;
+     position: absolute;
+     top: -20px; /* Position above content */
+     white-space: nowrap; /* Prevent wrapping */
+}
+
+#experience .left .timeline-date {
+    right: 40px; /* Position date to the right */
+    text-align: right;
+    width: calc(50% - 40px); /* Align text within item width */
+}
+
+#experience .right .timeline-date {
+    left: 40px; /* Position date to the left */
+    text-align: left;
+    width: calc(50% - 40px); /* Align text within item width */
+}
+
+
+#experience .tech-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+#experience .tech-list li {
+    background-color: #eee;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    color: #555;
+}
+
+
+/* Responsive for experience timeline */
+@media (max-width: 768px) {
+    #experience .timeline::after {
+        left: 15px; /* Move center line to the left */
+    }
+
+    #experience .timeline-item {
+        width: 100%;
+        padding-left: 30px; /* Adjust padding */
+        padding-right: 10px;
+    }
+
+    #experience .timeline-item::before {
+        left: 20px; /* Adjust arrow position */
+    }
+
+     #experience .timeline-item::after {
+        left: 8px; /* Move dots to the left line */
+     }
+
+    #experience .left, #experience .right {
+        left: 0; /* Both items align left */
+    }
+
+    #experience .right::before { /* Adjust right arrow position */
+         left: 20px; /* Position to the left */
+     }
+
+     #experience .left .timeline-date,
+     #experience .right .timeline-date {
+         position: relative; /* Change position */
+         top: auto; /* Remove fixed top */
+         left: auto; /* Remove fixed left */
+         right: auto; /* Remove fixed right */
+         text-align: left; /* Align left */
+         width: auto; /* Auto width */
+         margin-bottom: 5px; /* Add space below date */
+     }
+
+}

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pruthviraj's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/about.css">
+  <link rel="stylesheet" href="./css/conssitancy_image.css">
+  <link rel="stylesheet" href="./css/contact.css">
+  <link rel="stylesheet" href="./css/experience.css">
+  <link rel="stylesheet" href="./css/project.css">
+  <link rel="stylesheet" href="./css/skill.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+  <style>
+    .form-container {
+      max-width: 500px;
+      margin: auto;
+      margin-top: 50px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Fixed Header - Initially Hidden -->
+
+  <nav id="main-nav" class="navbar hidden">
+    <ul class="nav-links left">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#project">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-center">Pruthviraj Patil</div>
+  </nav>
+
+
+
+  <header id="hero-section">
+    <div class="container">
+      <h1 id="intro"></h1>
+      <!-- Optional: You could add a subtitle or button here later -->
+      <!-- <p class="subtitle">Building cool things for the web.</p> -->
+      <!-- <a href="#contact" class="cta-button">Get in Touch</a> -->
+    </div>
+  </header>
+
+  <!-- Other sections of your page would go here -->
+  <!-- <section id="about">...</section> -->
+  <!-- <section id="projects">...</section> -->
+
+  <script src="herosection.js"></script>
+  <script>
+    const navbar = document.getElementById('main-nav');
+    const introSection = document.getElementById('home');
+
+    window.addEventListener('scroll', () => {
+      const introBottom = introSection.getBoundingClientRect().bottom;
+
+      if (introBottom <= 0) {
+        navbar.classList.remove('hidden'); // Show nav
+      } else {
+        navbar.classList.add('hidden'); // Hide nav
+      }
+    });
+  </script>
+
+
+
+  </header>
+
+
+  <!-- include here about section -->
+  <div id="about"></div>
+
+  <!-- include here project section -->
+  <div id="project"></div>
+
+  <!-- experience -->
+  <div id="experience"></div>
+
+  <!-- inlcude here skill section -->
+  <div id="skill">
+
+
+    <!-- Section for skills -->
+    <section class="skills-section-rings">
+      <h2>My Skill Dashboard</h2> <!-- Dashboard-themed heading -->
+      <div class="skill-widgets-container"> <!-- Grid container for widgets -->
+
+        <!-- Individual Skill Widget -->
+        <div class="skill-widget">
+          <div class="widget-title">HTML, CSS & JavaScript</div>
+          <div class="progress-circle-container"> <!-- Container for circle and text -->
+            <svg class="progress-svg" viewBox="0 0 100 100">
+              <!-- Background Circle Track -->
+              <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+              <!-- Animated Fill Circle -->
+              <!-- Data percentage stored here -->
+              <circle class="circle-fill primary-fill" cx="50" cy="50" r="45" data-percentage="90"></circle>
+            </svg>
+            <!-- Percentage Text Overlay -->
+            <div class="percentage-overlay">90%</div>
+          </div>
+        </div>
+
+        <!-- Individual Skill Widget -->
+        <div class="skill-widget">
+          <div class="widget-title">React.js</div>
+          <div class="progress-circle-container">
+            <svg class="progress-svg" viewBox="0 0 100 100">
+              <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+              <!-- Add 'learning' class -->
+              <circle class="circle-fill learning-fill" cx="50" cy="50" r="45" data-percentage="50"></circle>
+            </svg>
+            <div class="percentage-overlay">50%</div>
+          </div>
+        </div>
+
+        <!-- ... Repeat for other skills ... -->
+        <div class="skill-widget">
+          <div class="widget-title">Node.js & Express</div>
+          <div class="progress-circle-container">
+            <svg class="progress-svg" viewBox="0 0 100 100">
+              <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+              <circle class="circle-fill primary-fill" cx="50" cy="50" r="45" data-percentage="90"></circle>
+            </svg>
+            <div class="percentage-overlay">90%</div>
+          </div>
+        </div>
+
+        <div class="skill-widget">
+          <div class="widget-title">MySQL</div>
+          <div class="progress-circle-container">
+            <svg class="progress-svg" viewBox="0 0 100 100">
+              <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+              <circle class="circle-fill primary-fill" cx="50" cy="50" r="45" data-percentage="85"></circle>
+            </svg>
+            <div class="percentage-overlay">85%</div>
+          </div>
+        </div>
+
+        <div class="skill-widget">
+          <div class="widget-title">Java, C</div>
+          <div class="progress-circle-container">
+            <svg class="progress-svg" viewBox="0 0 100 100">
+              <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+              <circle class="circle-fill primary-fill" cx="50" cy="50" r="45" data-percentage="92"></circle>
+            </svg>
+            <div class="percentage-overlay">92%</div>
+          </div>
+        </div>
+
+        <div class="skill-widget">
+          <div class="widget-title">Data Structures</div>
+          <div class="progress-circle-container">
+            <svg class="progress-svg" viewBox="0 0 100 100">
+              <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+              <circle class="circle-fill learning-fill" cx="50" cy="50" r="45" data-percentage="60"></circle>
+            </svg>
+            <div class="percentage-overlay">60%</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Embedded JavaScript -->
+
+
+
+  </div>
+  <!-- include here consistency section -->
+  <section class="consistency-section">
+    <h2>Consistency & Commitment</h2>
+    <div class="interactive-card">
+      <p>I take pride in my consistent contributions to development. Here's a visual of my coding consistency over the
+        past year:</p>
+
+      <div class="graph-container">
+        <!-- <center> -->
+        <div class="month-labels" id="month-labels"></div>
+        <div class="contribution-graph" id="contribution-graph"></div>
+        <!-- </center> -->
+      </div>
+      <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #aaa;">Each square represents a day of coding — the darker
+        the color, the more I contributed.</p>
+    </div>
+  </section>
+
+  <!-- include here the footer section -->
+  <!-- <div id="footer"></div> -->
+  <!-- <section id="contact" class="section">
+    <div class="container">
+      <p class="section-subtitle">REACH OUT TO ME</p>
+      <h2>Contact.</h2>
+
+      <form id="queryForm" method="POST">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="place">Place</label>
+            <input type="text" id="place" name="place" placeholder="Enter your place" required>
+          </div>
+          <div class="form-group">
+            <label for="query">Query</label>
+            <textarea id="query" name="query" placeholder="Enter your query" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn btn">Submit</button>
+        </form>
+      </div>  -->
+      <section id="contact" class="section">
+    <div class="container">
+      <form id="gmailForm">
+        <div class="form-group">
+    <label for="username">Your name</label>
+          <input type="text" id="name" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+  <label for="email">email</label>
+          <input type="email" id="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+  <label for="message">Message</label>
+          <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+        </div>
+      <button type="submit" class="submit-btn btn">Send via Gmail</button>
+    </form>
+</div>
+<script>
+    document.getElementById("gmailForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const subject = encodeURIComponent("New message from " + name);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=pruthvipatil0058@gmail.com&su=${subject}&body=${body}`;
+;
+
+      window.open(gmailUrl, '_blank'); // opens in new tab
+    });
+  </script>
+
+    </div>
+  </section>
+
+   <script src="help.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
+
+
+
+
+
+  </section>
+  <footer>
+    &copy; 2025 Pruthviraj. Made with passion 💙
+  </footer>
+
+
+  <!-- end of the footer -->
+  <script>
+    // Load footer using JavaScript
+    fetch("./views/include/footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+    fetch("./views/include/skill.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("skill").innerHTML = data;
+        initProgressRings(); // ✅ call it here AFTER inserting content
+      });
+    fetch("./views/include/experience.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("experience").innerHTML = data;
+      });
+    fetch("./views/include/project.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("project").innerHTML = data;
+      });
+    fetch("./views/include/about.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("about").innerHTML = data;
+      });
+
+    function initProgressRings() {
+      const circles = document.querySelectorAll(".circle-fill");
+
+      circles.forEach(circle => {
+        const radius = circle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+        const percent = parseFloat(circle.dataset.percentage) || 0;
+
+        circle.style.strokeDasharray = `${circumference}`;
+        circle.style.strokeDashoffset = `${circumference}`;
+
+        const offset = circumference - (percent / 100) * circumference;
+
+        setTimeout(() => {
+          circle.style.strokeDashoffset = offset;
+          circle.classList.add("is-animated");
+
+          const overlay = circle.closest(".progress-circle-container").querySelector(".percentage-overlay");
+          if (overlay) {
+            overlay.textContent = `${percent}%`;
+            overlay.classList.add("is-animated");
+          }
+        }, 200);
+      });
+    }
+
+    //  initProgressRings();
+  </script>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const consistencySection = document.querySelector('.consistency-section');
+
+      navLinks.classList.toggle('active');
+    }
+  </script>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

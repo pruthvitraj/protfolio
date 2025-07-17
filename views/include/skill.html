@@ -1,0 +1,119 @@
+
+
+    <!-- Section for skills -->
+    <section class="skills-section-rings">
+        <h2>My Skill Dashboard</h2> <!-- Dashboard-themed heading -->
+        <div class="skill-widgets-container"> <!-- Grid container for widgets -->
+
+            <!-- Individual Skill Widget -->
+            <div class="skill-widget">
+                <div class="widget-title">HTML, CSS & JavaScript</div>
+                <div class="progress-circle-container"> <!-- Container for circle and text -->
+                    <svg class="progress-svg" viewBox="0 0 100 100">
+                        <!-- Background Circle Track -->
+                        <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+                        <!-- Animated Fill Circle -->
+                        <!-- Data percentage stored here -->
+                        <circle class="circle-fill primary-fill" cx="50" cy="50" r="45" data-percentage="90"></circle>
+                    </svg>
+                     <!-- Percentage Text Overlay -->
+                    <div class="percentage-overlay">90%</div>
+                </div>
+            </div>
+
+             <!-- Individual Skill Widget -->
+            <div class="skill-widget">
+                <div class="widget-title">React.js</div>
+                <div class="progress-circle-container">
+                    <svg class="progress-svg" viewBox="0 0 100 100">
+                        <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+                        <!-- Add 'learning' class -->
+                        <circle class="circle-fill learning-fill" cx="50" cy="50" r="45" data-percentage="50"></circle>
+                    </svg>
+                     <div class="percentage-overlay">50%</div>
+                </div>
+            </div>
+
+            <!-- ... Repeat for other skills ... -->
+             <div class="skill-widget">
+                <div class="widget-title">Node.js & Express</div>
+                <div class="progress-circle-container">
+                    <svg class="progress-svg" viewBox="0 0 100 100">
+                        <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-fill primary-fill" cx="50" cy="50" r="45" data-percentage="90"></circle>
+                    </svg>
+                     <div class="percentage-overlay">90%</div>
+                </div>
+            </div>
+
+            <div class="skill-widget">
+                <div class="widget-title">MySQL</div>
+                 <div class="progress-circle-container">
+                    <svg class="progress-svg" viewBox="0 0 100 100">
+                        <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-fill primary-fill" cx="50" cy="50" r="45" data-percentage="85"></circle>
+                    </svg>
+                     <div class="percentage-overlay">85%</div>
+                </div>
+            </div>
+
+             <div class="skill-widget">
+                <div class="widget-title">Java, C</div>
+                 <div class="progress-circle-container">
+                    <svg class="progress-svg" viewBox="0 0 100 100">
+                        <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-fill primary-fill" cx="50" cy="50" r="45" data-percentage="92"></circle>
+                    </svg>
+                     <div class="percentage-overlay">92%</div>
+                </div>
+            </div>
+
+            <div class="skill-widget">
+                <div class="widget-title">Data Structures</div>
+                 <div class="progress-circle-container">
+                    <svg class="progress-svg" viewBox="0 0 100 100">
+                        <circle class="circle-track" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-fill learning-fill" cx="50" cy="50" r="45" data-percentage="60"></circle>
+                    </svg>
+                     <div class="percentage-overlay">60%</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Embedded JavaScript -->
+    
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const circles = document.querySelectorAll(".circle-fill");
+
+  circles.forEach(circle => {
+    const radius = circle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+
+    // Read percentage from data attribute
+    const percent = parseFloat(circle.dataset.percentage) || 0;
+
+    // Apply stroke-dash settings
+    circle.style.strokeDasharray = `${circumference}`;
+    circle.style.strokeDashoffset = `${circumference}`;
+
+    // Calculate stroke offset based on percentage
+    const offset = circumference - (percent / 100) * circumference;
+
+    // Animate with a slight delay for effect
+    setTimeout(() => {
+      circle.style.strokeDashoffset = offset;
+      circle.classList.add("is-animated");
+
+      // Animate percentage overlay
+      const overlay = circle.closest(".progress-circle-container").querySelector(".percentage-overlay");
+      if (overlay) {
+        overlay.textContent = `${percent}%`;
+        overlay.classList.add("is-animated");
+      }
+    }, 200);
+  });
+});
+</script>
